@@ -1,0 +1,22 @@
+body{
+    background: #FF4136;
+    text-align: center;
+}
+
+.page-header{
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+    color: #2ECC40;
+}
+#canvas {
+    position: relative;
+    background-color: #ccddcc;
+    margin: 1em auto;
+}
+.ball {
+    background-color: black;
+    position: absolute;
+    display: inline-block;
+    border-radius: 50%;
+}
