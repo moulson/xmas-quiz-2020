@@ -20,3 +20,16 @@ body{
     display: inline-block;
     border-radius: 50%;
 }
+
+.result{
+    font-size: 1.3rem;
+    outline: 000 1px;
+}
+
+.result.fail{
+    color: #000;
+}
+
+.result.pass{
+    color: #2ECC40;
+}

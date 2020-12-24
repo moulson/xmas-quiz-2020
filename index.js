@@ -1,15 +1,15 @@
 $(function(){
-
+var score = 0;
 
 var canvas = {
     element: document.getElementById('canvas'),
-    width: 600,
+    width: 350,
     height: 400,
     initialize: function () {
         
         this.element.style.width = this.width + 'px';
         this.element.style.height = this.height + 'px';
-        document.body.appendChild(this.element);
+        //document.body.appendChild(this.element);
     }
 };
 
@@ -69,17 +69,39 @@ var ball13 =  Ball.create("blue", 5, 2);
 var ball14 =  Ball.create("blue", 2, 2);
 ball1.draw(70, 0);
 ball2.draw(20, 200);
-ball3.draw(300, 75);
+ball3.draw(211, 75);
 ball4.draw(200, 60);
 ball5.draw(100, 130);
 ball6.draw(100, 30);
 ball7.draw(200, 130);
-ball8.draw(70, 0);
-ball9.draw(20, 200);
-ball10.draw(123, 321);
-ball11.draw(321, 123);
+ball8.draw(70, 20);
+ball9.draw(30, 175);
+ball10.draw(123, 275);
+ball11.draw(221, 123);
 ball12.draw(120, 110);
 ball13.draw(60, 60);
 ball14.draw(20, 130);
 
+
+
+$('#question-1').submit(function(e){
+    e.preventDefault();
+    var data = new FormData(document.getElementById('question-1'));
+    var answer = data.get('q1');
+    if(answer == "14"){
+        //correct!
+        score++;
+        $('#q1-result').text('Correct!').addClass('pass');
+    }
+    else{
+        $('#q1-result').text('Incorrect!').addClass('fail');
+    }
+    //disable form
+    if(answer != null){
+        $('input[name=q1]').each(function(){
+            $(this).attr('disabled', 'disabled');
+        });
+        $('#q1-s').attr('disabled', 'disabled');
+    }
+});
 });

@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
@@ -16,25 +17,31 @@
                     <h1 class="page-header">Dan's Christmas Quiz 2020!</h1>
                 </div>
             </div>
+
+            <!-- QUESTION 1 -->
             <div class="row">
                 <div class="col-md-12">
                     <h1 class="question-header">Question 1: Balls</h1>
                     <h3>How many balls are there?</h3>
+                    <h3 id="q1-result" class="result"></h3>
                     <div id="canvas"></div>
                 </div>
                 <div class="col-md-12">
                     <form id="question-1">
-                        <input type="radio" name="q1" value="1"/>
+                        <input type="radio" name="q1" value="12"/>
                         <label>12</label>
-                        <input type="radio" name="q1" value="1"/>
+                        <input type="radio" name="q1" value="14"/>
                         <label>14</label>
-                        <input type="radio" name="q1" value="1"/>
+                        <input type="radio" name="q1" value="16"/>
                         <label>16</label>
-                        <input type="radio" name="q1" value="1"/>
+                        <input type="radio" name="q1" value="19"/>
                         <label>19</label>
+                        <input type="submit" id="q1-s" />
                     </form>
                 </div>
             </div>
+
+            <!-- QUESTION 2 -->
         </div>
 
     </body>
