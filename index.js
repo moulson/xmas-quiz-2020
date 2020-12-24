@@ -1,7 +1,11 @@
 $(function () {
+    checkCookies();
     snowStorm.start();
     var score = 0;
-
+    if(getCookie('score') > 0){
+        score = getCookie('score');
+    }
+    updateScore(score);
     var canvas = {
         element: document.getElementById('canvas'),
         width: 350,
@@ -93,8 +97,10 @@ $(function () {
             //correct!
             score++;
             $('#q1-result').text('Correct!').addClass('pass');
+            setCookie('q1', 'p');
         } else {
             $('#q1-result').text('Incorrect!').addClass('fail');
+            setCookie('q1', 'f');
         }
         //disable form
         if (answer != null) {
@@ -102,19 +108,23 @@ $(function () {
                 $(this).attr('disabled', 'disabled');
             });
             $('#q1-s').attr('disabled', 'disabled');
+            setCookie('score', score);
         }
+        updateScore(score);
     });
 
     $('#question-2').submit(function (e) {
         e.preventDefault();
         var data = new FormData(document.getElementById('question-2'));
         var answer = data.get('q2');
-        if (answer == "test") {
+        if (answer == "2") {
             //correct!
             score++;
             $('#q2-result').text('Correct!').addClass('pass');
+            setCookie('q2', 'p');
         } else {
             $('#q2-result').text('Incorrect!').addClass('fail');
+            setCookie('q2', 'f');
         }
         //disable form
         if (answer != "") {
@@ -122,6 +132,49 @@ $(function () {
                 $(this).attr('disabled', 'disabled');
             });
             $('#q2-s').attr('disabled', 'disabled');
+            setCookie('score', score);
         }
+        updateScore(score);
     });
 });
+
+function updateScore(score) {
+    $('#score').text(`Score: ${getCookie('score')}/2`);
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookies(){
+    if(getCookie('q1') != ""){
+        $('input[name=q1]').each(function () {
+            $(this).attr('disabled', 'disabled');
+        });
+        $('#q1-s').attr('disabled', 'disabled');
+    }
+    if(getCookie('q2') != ""){
+        $('input[name=q2]').each(function () {
+            $(this).attr('disabled', 'disabled');
+        });
+        $('#q2-s').attr('disabled', 'disabled');
+    }
+}

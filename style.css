@@ -33,3 +33,10 @@ body{
 .result.pass{
     color: #2ECC40;
 }
+
+#score{
+    position: fixed;
+    left:0;
+    top:0;
+    font-size: 1.4rem;
+}
