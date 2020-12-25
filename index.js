@@ -72,6 +72,7 @@ $(function () {
     var ball12 = Ball.create("blue", 4, 2);
     var ball13 = Ball.create("blue", 5, 2);
     var ball14 = Ball.create("blue", 2, 2);
+    var ball15 = Ball.create("blue", 2,3)
     ball1.draw(70, 0);
     ball2.draw(20, 200);
     ball3.draw(211, 75);
@@ -86,6 +87,7 @@ $(function () {
     ball12.draw(120, 110);
     ball13.draw(60, 60);
     ball14.draw(20, 130);
+    ball15.draw(45, 115);
 
 
 
